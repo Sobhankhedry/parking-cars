@@ -9,12 +9,13 @@ public class Main {
     private static int MaxPark(char[] parks, int k) {
         int ParkedCars = 0;
         for (int i = 0; i < parks.length; i++) {
-            if (parks[i] == 'p') {
+            if (parks[i] == 'p'|| parks[i] == 'R') {
                 continue;
             }
             int s = Math.min(0,i-k);
-            for (int j = s; j < k; j++) {
+            for (int j = s; j < i+k; j++) {
                 if (parks[j] == 'p') {
+                    parks[j]= 'R';
                     ParkedCars++;
                     break;
                 }
